@@ -2,10 +2,8 @@ import os
 import json
 from google import genai
 
-# Initialize Gemini client
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# 🔥 FINAL PROMPT
 PROMPT = """
 You are an AI system that extracts structured insights from product reviews for mothers shopping on an e-commerce platform.
 
@@ -52,7 +50,6 @@ GUIDELINES:
 Analyze the following reviews:
 """
 
-# 🔁 Model call with fallback
 def call_model(prompt):
     try:
         return client.models.generate_content(
@@ -66,7 +63,6 @@ def call_model(prompt):
             contents=prompt
         )
 
-# 🔍 Safe extraction
 def extract_text(response):
     try:
         if response.text:
@@ -75,14 +71,12 @@ def extract_text(response):
     except:
         return None
 
-# 🧠 Main logic
 def analyze_reviews(reviews):
     prompt = PROMPT + "\n\n" + reviews
 
     response = call_model(prompt)
     output = extract_text(response)
 
-    # 🔁 Retry if null
     if not output or output == "null":
         print("⚠️ Empty response, retrying...")
         response = call_model(prompt)
@@ -92,12 +86,10 @@ def analyze_reviews(reviews):
         print("❌ Model failed to generate output")
         return
 
-    # 🧹 Clean output
     output = output.replace("```json", "").replace("```", "").strip()
 
     print("\nRAW OUTPUT:\n", output)
 
-    # ✅ Parse JSON
     try:
         data = json.loads(output)
         print("\nVALID JSON OUTPUT:\n", json.dumps(data, indent=2))
@@ -105,7 +97,6 @@ def analyze_reviews(reviews):
         print("\n❌ JSON ERROR:", e)
 
 
-# ▶️ Run
 if __name__ == "__main__":
     with open("data/sample_reviews.txt", "r", encoding="utf-8") as f:
         reviews = f.read()
