@@ -8,7 +8,7 @@
 
 Instead of scrolling through pages of conflicting comments, users receive a single, structured JSON report focused on what matters most: **Safety, Durability, and Age-Appropriateness.**
 
-###  [Watch the Demo Video](your-link-here)
+###  [Watch the Demo Video](https://drive.google.com/file/d/1PancJKeHz-32BuM5W3pX_gG8nVixlRkR/view?usp=sharing)
 
 ---
 
