@@ -4,8 +4,7 @@ A trust-aware, multilingual AI system that transforms unstructured product revie
 
 🔗 Demo
 🎥 Loom Video: 
-💻 Runs locally:
-python main.py
+💻 Runs locally: python main.py
 🧠 Summary
 
 Moms Verdict AI converts messy, unstructured product reviews into a clear, structured verdict.
@@ -129,10 +128,9 @@ Depends on input quality
 git clone https://github.com/Manipal-kodakandla/moms-verdict-ai.git
 cd moms-verdict-ai
 
-pip install -r requirements.txt
 
-set GOOGLE_API_KEY=your_key_here   # Windows
-# export GOOGLE_API_KEY=your_key_here (Mac/Linux)
+set GOOGLE_API_KEY=XXXX_XXXX # Windows
+# export GOOGLE_API_KEY=XXXXXX (Mac/Linux)
 
 python main.py
 🛠️ Tech Stack
